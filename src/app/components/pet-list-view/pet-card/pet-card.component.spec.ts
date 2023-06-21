@@ -8,7 +8,7 @@ describe('PetCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PetCardComponent]
+      imports: [PetCardComponent]
     });
     fixture = TestBed.createComponent(PetCardComponent);
     component = fixture.componentInstance;

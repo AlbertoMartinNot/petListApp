@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PetDataService } from 'src/app/services/pet-data.service';
 import { Pet } from '../../interfaces/pet';
+import { ButtonComponent } from './button/button.component';
+import { PetCardComponent } from './pet-card/pet-card.component';
+import { NgForOf } from '@angular/common';
 
 @Component({
+  standalone:true,
   selector: 'app-pet-list-view',
   templateUrl: './pet-list-view.component.html',
+  imports:[ButtonComponent,PetCardComponent, NgForOf],
   styleUrls: ['./pet-list-view.component.scss'],
 })
 export class PetListViewComponent implements OnInit {
@@ -12,7 +17,7 @@ export class PetListViewComponent implements OnInit {
   dogButtonText = 'Show Only Dogs';
   allPetsButtonText = 'Show All Pets';
 
-  petData: any = {};
+  petData: Array<Pet> = [];
   unfilteredPetData: any = {};
   catFilterApplied: boolean = false;
   dogFilterApplied: boolean = false;
@@ -21,10 +26,9 @@ export class PetListViewComponent implements OnInit {
   constructor(private petDataService: PetDataService) {}
 
   ngOnInit() {
-    this.petDataService.getPetData().subscribe((data: Pet) => {
-      this.petData = data.pets;
+    this.petDataService.getPetData().subscribe((data: any) => {
       this.unfilteredPetData = [
-        ...this.petData.sort(function (a: any, b: any) {
+        ...data.pets.sort(function (a: any, b: any) {
           if (a.name > b.name) {
             return 1;
           }
@@ -34,6 +38,7 @@ export class PetListViewComponent implements OnInit {
           return 0;
         }),
       ];
+      this.petData = this.unfilteredPetData
     });
   }
 
@@ -77,12 +82,7 @@ export class PetListViewComponent implements OnInit {
   }
 
   cardClicked(petName:string){
-    this.petData = this.unfilteredPetData.filter(
-      (pet: any) => pet.name === petName
-    );
-
-    this.catFilterApplied = true;
-    this.dogFilterApplied = true;
-    this.noFilterApplied = false;
+    let clickedItemIndex = this.petData.findIndex((pet: any) => pet.name === petName);
+    this.petData = this.petData.filter((pet,index) => index >= clickedItemIndex);
   }
 }
