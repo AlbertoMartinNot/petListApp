@@ -1,0 +1,16 @@
+.pet-cards-container{
+    display: flex;
+    flex-flow: wrap;
+    background-color: #a2eae0;
+}
+
+.card-container{
+    margin: 2em;
+    cursor: pointer;
+}
+
+.buttons-container{
+    display: flex;
+    margin-left: 1.5em;
+    margin-top: 1em;
+}

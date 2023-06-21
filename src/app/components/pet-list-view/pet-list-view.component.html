@@ -1,0 +1,8 @@
+<div class="buttons-container">
+    <app-button [buttonDisabled]="catFilterApplied" (clickEvent)="filterByPetType($event)" [buttonText]="catButtonText" [petType]="'cat'"></app-button>
+    <app-button [buttonDisabled]="dogFilterApplied" (clickEvent)="filterByPetType($event)" [buttonText]="dogButtonText" [petType]="'dog'"></app-button>
+    <app-button [buttonDisabled]="noFilterApplied" (clickEvent)="filterByPetType($event)" [buttonText]="allPetsButtonText" [petType]="'all'"></app-button>
+</div>
+<div class="pet-cards-container">
+    <app-pet-card class="card-container" (clickEvent)="cardClicked($event)" *ngFor="let pet of petData" [name]="pet.name" [imageSrc]="pet.imageSrc" [petType]="pet.petType"></app-pet-card>
+</div>

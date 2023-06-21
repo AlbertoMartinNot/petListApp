@@ -1,0 +1,22 @@
+.card {
+    width: 200px;
+    height: 150px;
+    cursor: pointer;
+    background: url('https://t3.ftcdn.net/jpg/00/84/55/66/360_F_84556601_W71hd1xmCxZUhsscyNlokY1an7Kqx6ZJ.jpg');
+    background-repeat: no-repeat;
+    background-size: 200px 150px;
+    }
+
+.card-content {
+    padding-top: 1.5em;
+    align-self: center;
+}
+
+.card-header {
+    align-self: center;
+}
+
+.card-image {
+    align-self: center;
+    padding-top: 0.5em;
+}
