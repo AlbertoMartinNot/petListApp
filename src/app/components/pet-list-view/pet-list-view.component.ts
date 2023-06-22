@@ -39,6 +39,9 @@ export class PetListViewComponent implements OnInit {
         }),
       ];
       this.petData = this.unfilteredPetData
+    },
+    (error) => {
+      console.log(error)
     });
   }
 
@@ -76,7 +79,11 @@ export class PetListViewComponent implements OnInit {
           this.noFilterApplied = false;
         }
         break;
-      default:
+      default:{
+        this.catFilterApplied = false;
+        this.dogFilterApplied = false;
+        this.noFilterApplied = true;
+      }
         break;
     }
   }

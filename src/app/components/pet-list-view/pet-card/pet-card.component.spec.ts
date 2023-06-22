@@ -18,4 +18,10 @@ describe('PetCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit event', () => {
+    spyOn(component.clickEvent, 'emit');
+    component.cardClickEvent();
+    expect(component.clickEvent.emit).toHaveBeenCalled();
+  });
 });

@@ -16,4 +16,10 @@ describe('PetDataService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should call getPetData function', () => {
+    spyOn(service,'getPetData')
+    service.getPetData();
+    expect(service.getPetData).toHaveBeenCalled();
+  });
 });
