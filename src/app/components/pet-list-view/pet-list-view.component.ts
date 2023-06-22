@@ -4,6 +4,7 @@ import { Pet } from '../../interfaces/pet';
 import { ButtonComponent } from './button/button.component';
 import { PetCardComponent } from './pet-card/pet-card.component';
 import { NgForOf } from '@angular/common';
+import { petConstants } from 'src/app/constants/pet.constants';
 
 @Component({
   standalone:true,
@@ -13,9 +14,9 @@ import { NgForOf } from '@angular/common';
   styleUrls: ['./pet-list-view.component.scss'],
 })
 export class PetListViewComponent implements OnInit {
-  catButtonText = 'Show Only Cats';
-  dogButtonText = 'Show Only Dogs';
-  allPetsButtonText = 'Show All Pets';
+  catButtonText = petConstants.CAT_BUTTON_TEXT;
+  dogButtonText = petConstants.DOG_BUTTON_TEXT;
+  allPetsButtonText = petConstants.ALL_BUTTON_TEXT;
 
   petData: Array<Pet> = [];
   unfilteredPetData: any = {};
