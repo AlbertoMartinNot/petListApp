@@ -14,5 +14,6 @@
 1. Clone this repo
 2. open terminal and cd root folder (petListApp)
 3. run 'npm install' command in terminal
-4. run 'ng serve' command in terminal to run the app in localhost
-5. run 'ng test' command in terminal to run the tests and see the coverage
+4. run 'npm install -g @angular/cli' command in terminal
+5. run 'ng serve' command in terminal to run the app in localhost
+6. run 'ng test' command in terminal to run the tests and see the coverage
